@@ -7,9 +7,14 @@ const createProduct = async (payload:TProduct)=>{
   return result
 }
 
+const getAllProducts = async()=>{
+  const result = await Product.find()
+  return result
+}
+
 export const ProductServices = {
   createProduct,
-  // getAllProducts,
+  getAllProducts,
   // getProductById,
   // updateProduct,
   // deleteProduct,

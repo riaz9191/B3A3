@@ -31,11 +31,15 @@ const updateProduct = async (productId: string, payload: Partial<TProduct>) => {
   });
   return result;
 };
+
+const deleteProduct = async (productId: string) => {
+  await Product.findByIdAndDelete(productId);
+};
 export const ProductServices = {
   createProduct,
   getAllProducts,
   getProductById,
   updateProduct,
-  // deleteProduct,
+  deleteProduct,
   // searchProducts,
 };

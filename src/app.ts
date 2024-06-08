@@ -11,16 +11,19 @@ app.use(cors());
 
 app.use('/api/products', ProductRoutes);
 app.use('/api/orders', OrderRoutes);
+
+
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).json({
+    message: "Welcome to B3A2 Ecomm"
+  });
+});
 app.use((req: Request, res: Response, next: any) => {
   res.status(404).json({
     success: false,
     message: 'Route not found',
   });
-});
-
-
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
+  next()
 });
 
 export default app;

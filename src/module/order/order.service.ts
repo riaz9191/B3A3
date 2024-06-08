@@ -11,10 +11,14 @@ const getAllOrders = async () => {
   const orders = await Order.find().populate('productId');
   return orders;
 };
+const getOrdersByEmail = async (email: string) => {
+  const orders = await Order.find({ email }).populate('productId');
+  return orders;
+};
 
 export const OrderServices = {
   createOrder,
   getAllOrders,
-  // getOrdersByEmail,
+  getOrdersByEmail,
   // getOrderById,
 };

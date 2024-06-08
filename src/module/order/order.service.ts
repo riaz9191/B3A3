@@ -7,9 +7,14 @@ const createOrder = async (payload: TOrder) => {
   return order;
 };
 
+const getAllOrders = async () => {
+  const orders = await Order.find().populate('productId');
+  return orders;
+};
+
 export const OrderServices = {
   createOrder,
-  // getAllOrders,
+  getAllOrders,
   // getOrdersByEmail,
   // getOrderById,
 };
